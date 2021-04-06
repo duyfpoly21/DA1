@@ -108,7 +108,7 @@ public class FormInput extends javax.swing.JFrame {
         }
     }
     
-    private void loadtbdd(String path){
+    private void loadtbdd(List<Sinhvien> lst){
         try {
             tbmModeldd.setRowCount(0);
             tbmModeldd.setColumnCount(0);
@@ -117,7 +117,7 @@ public class FormInput extends javax.swing.JFrame {
                 tbmModeldd.addColumn(comlum);
             }
             int i=0;
-            for (Sinhvien x : SVinputdd.getListdd(SVinputdd.getwb(path))) {
+            for (Sinhvien x : lst) {
                 tbmModeldd.addRow(new Object[]{i++,x.getMasv(),x.getTensv(),x.getTilenghi()+"%"});
             }
         } catch (Exception e) {
@@ -164,7 +164,7 @@ public class FormInput extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         tbinput1 = new javax.swing.JTable();
         lbl_chek1 = new javax.swing.JLabel();
-        jSpinner1 = new javax.swing.JSpinner();
+        txttilenghi = new javax.swing.JTextField();
         lblbgr = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -299,9 +299,9 @@ public class FormInput extends javax.swing.JFrame {
 
         jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 1205, 362));
 
-        lbl_chek1.setText("Tỉ lệ được phép nghỉ:");
+        lbl_chek1.setText("Tỉ lệ được phép nghỉ (%):");
         jPanel2.add(lbl_chek1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
-        jPanel2.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 100, -1));
+        jPanel2.add(txttilenghi, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 70, -1));
 
         tabtb.addTab("Danh sách điểm danh", jPanel2);
 
@@ -369,12 +369,12 @@ public class FormInput extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void btnquizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnquizActionPerformed
-        String l ="C:\\Users\\dell\\Desktop\\shit.xlsx";
-        if (SVinputdd.isfilediemdanh(_lstSV, SVinputdd.getListdd(SVinput.getwb(l)))) {
+//        String l ="C:\\Users\\dell\\Desktop\\ppp.xlsx";
+        if (SVinputdd.isfilediemdanh(_lstSV, SVinputdd.getListdd(SVinput.getwb(chooser())))) {
             JOptionPane.showMessageDialog(rootPane, "nhap dung");
+            loadtbdd(_lstSV);
         }
                     JOptionPane.showMessageDialog(rootPane, "nhap sai");
-
     }//GEN-LAST:event_btnquizActionPerformed
 
     private void btndd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndd1ActionPerformed
@@ -400,8 +400,13 @@ public class FormInput extends javax.swing.JFrame {
         if (rd75.isSelected()) {
             a = 7.5;
         }
+        int b = Integer.parseInt(txttilenghi.getText());
+        if (txttilenghi.getText().isBlank()) {
+            JOptionPane.showMessageDialog(rootPane, "Moi nhap thi le duco phep nghi");
+            return;
+        }
         for (int i = 0; i < _lstSV.size(); i++) {
-            if (Service.SVcheckdk.checksv(_lstdiem.get(i), _lop, a)) {
+            if (Service.SVcheckdk.checksv(_lstdiem.get(i), _lop, a)&&_lstSV.get(i).getTilenghi()<=b) {
                 _lstSV.get(i).setCheckfalse(true);
             }else{
                 _lstSV.get(i).setCheckfalse(false);
@@ -471,7 +476,6 @@ public class FormInput extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JSpinner jSpinner1;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JLabel lbl_chek;
     private javax.swing.JLabel lbl_chek1;
@@ -483,5 +487,6 @@ public class FormInput extends javax.swing.JFrame {
     private javax.swing.JTabbedPane tabtb;
     private javax.swing.JTable tbinput;
     private javax.swing.JTable tbinput1;
+    private javax.swing.JTextField txttilenghi;
     // End of variables declaration//GEN-END:variables
 }

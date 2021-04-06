@@ -12,16 +12,19 @@ import javax.swing.ButtonGroup;
  * @author dell
  */
 public class Outputkehoachthi extends javax.swing.JFrame {
+
     ButtonGroup groupbutton = new ButtonGroup();
+
     /**
      * Creates new form Outputkehoachthi
      */
     public Outputkehoachthi() {
         initComponents();
         groupbuton();
+        tab.removeAll();
     }
-    
-    void groupbuton(){
+
+    void groupbuton() {
         groupbutton.add(rdthucong);
         groupbutton.add(rdTudong);
     }
@@ -37,22 +40,23 @@ public class Outputkehoachthi extends javax.swing.JFrame {
 
         rdthucong = new javax.swing.JRadioButton();
         rdTudong = new javax.swing.JRadioButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jSpinner1 = new javax.swing.JSpinner();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        txtsobuoithi = new javax.swing.JTextField();
+        lblbuoithithu = new javax.swing.JLabel();
+        tab = new javax.swing.JTabbedPane();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        table1 = new javax.swing.JTable();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        tb2 = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        tb3 = new javax.swing.JTable();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tb4 = new javax.swing.JTable();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tb5 = new javax.swing.JTable();
+        btntet = new javax.swing.JButton();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jLabel5 = new javax.swing.JLabel();
+        btntet1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -63,23 +67,17 @@ public class Outputkehoachthi extends javax.swing.JFrame {
         rdTudong.setText("Chia buoi tu dong");
         getContentPane().add(rdTudong, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, -1, -1));
 
-        jLabel1.setText("Ngay cuoi:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 50, -1, -1));
+        txtsobuoithi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtsobuoithiActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtsobuoithi, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, 100, -1));
 
-        jLabel2.setText("Moi buoi co so sinh vien:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, -1, -1));
+        lblbuoithithu.setText("Chon cac ngay thi");
+        getContentPane().add(lblbuoithithu, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, -1, -1));
 
-        jLabel3.setText("Ngay thu 2");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 50, -1, -1));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 50, 120, -1));
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 50, 120, -1));
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 50, 120, -1));
-
-        jLabel4.setText("Ngay dau tien:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, -1, -1));
-        getContentPane().add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 80, 70, -1));
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        table1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -90,11 +88,11 @@ public class Outputkehoachthi extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(table1);
 
-        jTabbedPane1.addTab("Ngay thu nhat", jScrollPane1);
+        tab.addTab("Ngay thu nhat", jScrollPane1);
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        tb2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -105,11 +103,11 @@ public class Outputkehoachthi extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane3.setViewportView(jTable3);
+        jScrollPane3.setViewportView(tb2);
 
-        jTabbedPane1.addTab("Ngay thu 3", jScrollPane3);
+        tab.addTab("Ngay thu 3", jScrollPane3);
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tb3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -120,17 +118,101 @@ public class Outputkehoachthi extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(tb3);
 
-        jTabbedPane1.addTab("Ngay thu 2", jScrollPane2);
+        tab.addTab("Ngay thu 2", jScrollPane2);
 
-        getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 910, 380));
+        tb4.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane4.setViewportView(tb4);
 
-        jButton1.setText("jButton1");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 110, 130, -1));
+        tab.addTab("Ngay thu 2", jScrollPane4);
+
+        tb5.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane5.setViewportView(tb5);
+
+        tab.addTab("Ngay thu 2", jScrollPane5);
+
+        getContentPane().add(tab, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 910, 340));
+
+        btntet.setText("RESET");
+        btntet.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btntetActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btntet, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 90, -1, -1));
+
+        jDateChooser1.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                jDateChooser1AncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 90, 100, -1));
+
+        jLabel5.setText("SO buoi thi");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, -1, -1));
+
+        btntet1.setText("OK");
+        btntet1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btntet1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btntet1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 50, 60, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btntetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntetActionPerformed
+        // TODO add your handling code here:
+        int a = Integer.parseInt(txtsobuoithi.getText());
+        switch(a){
+            case 1:
+                tab.removeAll();
+                tab.addTab("buoi nay", table1);
+                break;
+        }
+        tab.addTab(txtsobuoithi.getText(), table1);
+    }//GEN-LAST:event_btntetActionPerformed
+
+    private void jDateChooser1AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jDateChooser1AncestorAdded
+        // TODO add your handling code here:
+        if (rootPaneCheckingEnabled) {
+
+        }
+    }//GEN-LAST:event_jDateChooser1AncestorAdded
+
+    private void txtsobuoithiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtsobuoithiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtsobuoithiActionPerformed
+
+    private void btntet1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntet1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btntet1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -168,23 +250,24 @@ public class Outputkehoachthi extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JButton btntet;
+    private javax.swing.JButton btntet1;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JLabel lblbuoithithu;
     private javax.swing.JRadioButton rdTudong;
     private javax.swing.JRadioButton rdthucong;
+    private javax.swing.JTabbedPane tab;
+    private javax.swing.JTable table1;
+    private javax.swing.JTable tb2;
+    private javax.swing.JTable tb3;
+    private javax.swing.JTable tb4;
+    private javax.swing.JTable tb5;
+    private javax.swing.JTextField txtsobuoithi;
     // End of variables declaration//GEN-END:variables
 }

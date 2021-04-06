@@ -31,12 +31,10 @@ public class SVinputdd {
         try {
             Sheet sheet = wb.getSheetAt(0);
             List<Sinhvien> list = new ArrayList<>();
-            int index = getindextong(wb);
             for (Row row : sheet) {
                 Sinhvien sv = new Sinhvien();
                 if (row.getRowNum()>2&&row.getCell(3)!=null) {
-                    sv.setMasv(row.getCell(1).toString());
-                    sv.setTensv(row.getCell(2).toString());
+                    sv.setMasv(row.getCell(2).toString());
                     if (true) {
                         sv.setTilenghi((int) (row.getCell(row.getLastCellNum()-1).getNumericCellValue()*100));
                     }
@@ -63,8 +61,9 @@ public class SVinputdd {
                 if (lstdd.get(i).getMasv().equals(lstquz.get(i).getMasv()) == false) {
                     return false;
                 }
-                return true;
+                lstquz.get(i).setTilenghi(lstdd.get(i).getTilenghi());
             }
+            return true;
         }
         return false;
     }
@@ -82,22 +81,6 @@ public class SVinputdd {
         }
     }
     
-    static int f(Workbook b){
-        return b.getSheetAt(0).getRow(0).getLastCellNum();
-    }
-
-    static int getindextong(Workbook wb) {
-        try {
-            Sheet sheet = wb.getSheetAt(0);
-            int i = -1;
-            for (Cell cell : sheet.getRow(0)) {
-                ++i;
-            }
-            return i;
-        } catch (Exception e) {
-        }
-        return -1;
-    }
     
     public static void main(String[] args) {
         Sheet x = getwb("C:\\Users\\dell\\Desktop\\ppp.xlsx").getSheetAt(0);
