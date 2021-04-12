@@ -94,10 +94,16 @@ public class Outputkehoachthi extends javax.swing.JFrame {
         btntet = new javax.swing.JButton();
         datechooser = new com.toedter.calendar.JDateChooser();
         jLabel5 = new javax.swing.JLabel();
+<<<<<<< HEAD
         btnok = new javax.swing.JButton();
         txtsosv = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+=======
+        btntet1 = new javax.swing.JButton();
+        txtsobuoithi1 = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+>>>>>>> 03435cfd68c981b8aed8dab741fc877dee1196c6
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -212,6 +218,7 @@ public class Outputkehoachthi extends javax.swing.JFrame {
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
+<<<<<<< HEAD
         datechooser.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 datechooserMouseClicked(evt);
@@ -239,6 +246,12 @@ public class Outputkehoachthi extends javax.swing.JFrame {
 
         jLabel6.setText("So SV moi buoi");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, -1, -1));
+=======
+        getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 90, 150, -1));
+
+        jLabel5.setText("SO buoi thi");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, -1, -1));
+>>>>>>> 03435cfd68c981b8aed8dab741fc877dee1196c6
 
         jButton1.setText("jButton1");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -246,13 +259,28 @@ public class Outputkehoachthi extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+<<<<<<< HEAD
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 50, -1, -1));
+=======
+        getContentPane().add(btntet1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 50, 60, -1));
+
+        txtsobuoithi1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtsobuoithi1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtsobuoithi1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 60, 40, -1));
+
+        jLabel6.setText("So SV moi buoi");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, -1, -1));
+>>>>>>> 03435cfd68c981b8aed8dab741fc877dee1196c6
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btntetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntetActionPerformed
         // TODO add your handling code here:
+<<<<<<< HEAD
 //        int a = Integer.parseInt(txtsobuoithi.getText());
 //        switch (a) {
 //            case 1:
@@ -262,6 +290,16 @@ public class Outputkehoachthi extends javax.swing.JFrame {
 //        }
 //        tab.addTab(txtsobuoithi.getText(), tb1);
         JOptionPane.showMessageDialog(rootPane, datechooser.getDateFormatString());
+=======
+        int a = Integer.parseInt(txtsobuoithi.getText());
+        switch(a){
+            case 1:
+                tab.removeAll();
+                tab.addTab("buoi nay", tb1);
+                break;
+        }
+        tab.addTab(txtsobuoithi.getText(), tb1);
+>>>>>>> 03435cfd68c981b8aed8dab741fc877dee1196c6
     }//GEN-LAST:event_btntetActionPerformed
 
     private void datechooserAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_datechooserAncestorAdded
@@ -307,6 +345,10 @@ public class Outputkehoachthi extends javax.swing.JFrame {
         List<Sinhvien> lst =  SVChiacathi.lstSVfinish(SVChiacathi.fake(), ngaythi, 3, 15);
         loadtb(lst,15);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtsobuoithi1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtsobuoithi1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtsobuoithi1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -365,6 +407,10 @@ public class Outputkehoachthi extends javax.swing.JFrame {
     private javax.swing.JTable tb4;
     private javax.swing.JTable tb5;
     private javax.swing.JTextField txtsobuoithi;
+<<<<<<< HEAD
     private javax.swing.JTextField txtsosv;
+=======
+    private javax.swing.JTextField txtsobuoithi1;
+>>>>>>> 03435cfd68c981b8aed8dab741fc877dee1196c6
     // End of variables declaration//GEN-END:variables
 }

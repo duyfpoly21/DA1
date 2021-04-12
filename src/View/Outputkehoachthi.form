@@ -263,9 +263,15 @@
         </Constraint>
       </Constraints>
     </Component>
+<<<<<<< HEAD
     <Component class="javax.swing.JTextField" name="txtsosv">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtsosvActionPerformed"/>
+=======
+    <Component class="javax.swing.JTextField" name="txtsobuoithi1">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtsobuoithi1ActionPerformed"/>
+>>>>>>> 03435cfd68c981b8aed8dab741fc877dee1196c6
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -280,6 +286,7 @@
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="380" y="60" width="-1" height="-1"/>
+<<<<<<< HEAD
         </Constraint>
       </Constraints>
     </Component>
@@ -293,6 +300,8 @@
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="600" y="50" width="-1" height="-1"/>
+=======
+>>>>>>> 03435cfd68c981b8aed8dab741fc877dee1196c6
         </Constraint>
       </Constraints>
     </Component>
