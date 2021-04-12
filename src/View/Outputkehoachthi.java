@@ -280,7 +280,6 @@ public class Outputkehoachthi extends javax.swing.JFrame {
 
     private void btntetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntetActionPerformed
         // TODO add your handling code here:
-<<<<<<< HEAD
 //        int a = Integer.parseInt(txtsobuoithi.getText());
 //        switch (a) {
 //            case 1:
@@ -290,7 +289,6 @@ public class Outputkehoachthi extends javax.swing.JFrame {
 //        }
 //        tab.addTab(txtsobuoithi.getText(), tb1);
         JOptionPane.showMessageDialog(rootPane, datechooser.getDateFormatString());
-=======
         int a = Integer.parseInt(txtsobuoithi.getText());
         switch(a){
             case 1:
@@ -299,7 +297,6 @@ public class Outputkehoachthi extends javax.swing.JFrame {
                 break;
         }
         tab.addTab(txtsobuoithi.getText(), tb1);
->>>>>>> 03435cfd68c981b8aed8dab741fc877dee1196c6
     }//GEN-LAST:event_btntetActionPerformed
 
     private void datechooserAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_datechooserAncestorAdded
