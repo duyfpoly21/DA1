@@ -257,6 +257,9 @@ public class Formkehoach extends javax.swing.JFrame {
 
     private void btndd2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndd2ActionPerformed
         // TODO add your handling code here:
+        Outputkehoachthi x= new Outputkehoachthi();
+        Outputkehoachthi.getlstSV(_lstSV);
+        x.setVisible(true);
     }//GEN-LAST:event_btndd2ActionPerformed
 
     /**

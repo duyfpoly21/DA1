@@ -5,6 +5,10 @@
  */
 package View;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 import javax.swing.JOptionPane;
 import mode.Lop;
 
@@ -13,6 +17,7 @@ import mode.Lop;
  * @author dell
  */
 public class tst extends javax.swing.JFrame {
+    List<String> _ngaythi = new ArrayList<>();
 
     /**
      * Creates new form tst
@@ -20,14 +25,12 @@ public class tst extends javax.swing.JFrame {
     public tst() {
         initComponents();
         
-        JOptionPane.showMessageDialog(rootPane, _lop1.getMalop());
+    }
+    
+        public static String stringDD(Date date) {
+        return new SimpleDateFormat("dd-MM-yyyy").format(date);
     }
 
-    static Lop _lop1 = new Lop();
-
-    public static void getlop(Lop x) {
-        _lop1 = x;
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -38,21 +41,74 @@ public class tst extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        datechooser = new com.toedter.calendar.JDateChooser();
+        jButton1 = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        datechooser.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                datechooserAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        datechooser.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                datechooserMouseClicked(evt);
+            }
+        });
+
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(datechooser, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addContainerGap(134, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton1)
+                    .addComponent(datechooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(238, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        for (String string : _ngaythi) {
+            System.out.println(string);
+        }
+        System.out.println(stringDD(datechooser.getDate()));
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void datechooserAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_datechooserAncestorAdded
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_datechooserAncestorAdded
+
+    private void datechooserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_datechooserMouseClicked
+        // TODO add your handling code here:
+//        _ngaythi.add(stringDD(datechooser.getDate()));
+    }//GEN-LAST:event_datechooserMouseClicked
 
     /**
      * @param args the command line arguments
@@ -90,5 +146,7 @@ public class tst extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.toedter.calendar.JDateChooser datechooser;
+    private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
 }

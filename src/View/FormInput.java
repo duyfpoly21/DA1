@@ -32,7 +32,7 @@ import Service.SVinputdd;
  * @author dell
  */
 public class FormInput extends javax.swing.JFrame {
-    
+
     DefaultTableModel tbmModel = new DefaultTableModel();
     DefaultTableModel tbmModeldd = new DefaultTableModel();
     Workbook _wb = new HSSFWorkbook();
@@ -51,7 +51,7 @@ public class FormInput extends javax.swing.JFrame {
         setResizable(false);
         setformtabquiz();
     }
-    
+
     private void setformtabquiz() {
         tbmModel = (DefaultTableModel) tbinput.getModel();
         tbmModeldd = (DefaultTableModel) tbinput1.getModel();
@@ -65,14 +65,14 @@ public class FormInput extends javax.swing.JFrame {
         btndd1.setIcon(new ImageIcon("img/file.png"));
         btnnextform1.setIcon(new ImageIcon("img/next.png"));
     }
-    
+
     private void groupradio() {
         ButtonGroup group = new ButtonGroup();
         group.add(rd75);
         group.add(rd10);
         rd10.setSelected(true);
     }
-    
+
     private void loadtbquiz(String path) {
         tbmModel.setRowCount(0);
         tbmModel.setColumnCount(0);
@@ -106,25 +106,33 @@ public class FormInput extends javax.swing.JFrame {
                 tbmModel.addRow(new Object[]{i + 1, _lstSV.get(i).getMasv(), _lstSV.get(i).getTensv(), _lstdiem.get(i).getDiemonl()});
             }
         }
+        if (_lop.getCheck() == 0) {
+            for (int i = 0; i < 3; i++) {
+                tbmModel.addColumn(colums[i]);
+            }
+            for (int i = 0; i < _lstSV.size(); i++) {
+                tbmModel.addRow(new Object[]{i + 1, _lstSV.get(i).getMasv(), _lstSV.get(i).getTensv()});
+            }
+        }
     }
-    
-    private void loadtbdd(List<Sinhvien> lst){
+
+    private void loadtbdd(List<Sinhvien> lst) {
         try {
             tbmModeldd.setRowCount(0);
             tbmModeldd.setColumnCount(0);
-            String  comlums[] = {"STT","Mã sinh viên","Tên sinh viên","Tỉ lệ nghỉ"};
+            String comlums[] = {"STT", "Mã sinh viên", "Tên sinh viên", "Tỉ lệ nghỉ"};
             for (String comlum : comlums) {
                 tbmModeldd.addColumn(comlum);
             }
-            int i=0;
+            int i = 0;
             for (Sinhvien x : lst) {
-                tbmModeldd.addRow(new Object[]{i++,x.getMasv(),x.getTensv(),x.getTilenghi()+"%"});
+                tbmModeldd.addRow(new Object[]{i++, x.getMasv(), x.getTensv(), x.getTilenghi() + "%"});
             }
         } catch (Exception e) {
-            System.out.println("loi"+e);
+            System.out.println("loi" + e);
         }
     }
-    
+
     private String chooser() {
         try {
             File srcFile = null;
@@ -369,30 +377,37 @@ public class FormInput extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void btnquizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnquizActionPerformed
-//        String l ="C:\\Users\\dell\\Desktop\\ppp.xlsx";
+//        String l = "C:\\Users\\dell\\Desktop\\ppp.xlsx";
+        if (_lstSV == null) {
+            JOptionPane.showMessageDialog(rootPane, "Moi ban nhap file diem quiz da");
+            return;
+        }
         if (SVinputdd.isfilediemdanh(_lstSV, SVinputdd.getListdd(SVinput.getwb(chooser())))) {
             JOptionPane.showMessageDialog(rootPane, "nhap dung");
             loadtbdd(_lstSV);
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "nhap sai");
         }
-                    JOptionPane.showMessageDialog(rootPane, "nhap sai");
     }//GEN-LAST:event_btnquizActionPerformed
 
     private void btndd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndd1ActionPerformed
         String path = chooser();
         Workbook wb = Service.SVinput.getwb(path);
         Lop lop = Service.SVinput.getlop(wb);
-        if (lop.getCheck() == 1) {
-            loadtbquiz(path);
-            lbllop.setText("Lớp: " + lop.getMalop() + "\t Môn: " + lop.getMamon() + "\t Kì học: " + lop.getKihoc() + "\t Thời gian: " + lop.getThoigian());
-        } else if (lop.getCheck() == 2) {
-            loadtbquiz(path);
-            lbllop.setText("Lớp: " + lop.getMalop() + "\t Môn: " + lop.getMamon() + "\t Kì học: " + lop.getKihoc() + "\t Thời gian: " + lop.getThoigian());
-        } else {
-            lbllop.setText("");
-            tbmModel.setColumnCount(0);
-            tbmModel.setRowCount(0);
-            JOptionPane.showMessageDialog(rootPane, "Môn " + lop.getMamon() + " không cần check điểm Quiz");
-        }
+        loadtbquiz(path);
+        lbllop.setText("Lớp: " + lop.getMalop() + "\t Môn: " + lop.getMamon() + "\t Kì học: " + lop.getKihoc() + "\t Thời gian: " + lop.getThoigian());
+//        if (lop.getCheck() == 1) {
+//            loadtbquiz(path);
+//            lbllop.setText("Lớp: " + lop.getMalop() + "\t Môn: " + lop.getMamon() + "\t Kì học: " + lop.getKihoc() + "\t Thời gian: " + lop.getThoigian());
+//        } else if (lop.getCheck() == 2) {
+//            loadtbquiz(path);
+//            lbllop.setText("Lớp: " + lop.getMalop() + "\t Môn: " + lop.getMamon() + "\t Kì học: " + lop.getKihoc() + "\t Thời gian: " + lop.getThoigian());
+//        } else {
+//            lbllop.setText("");
+//            tbmModel.setColumnCount(0);
+//            tbmModel.setRowCount(0);
+//            JOptionPane.showMessageDialog(rootPane, "Môn " + lop.getMamon() + " không cần check điểm");
+//        }
     }//GEN-LAST:event_btndd1ActionPerformed
 
     private void btnnextform1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnextform1ActionPerformed
@@ -400,15 +415,17 @@ public class FormInput extends javax.swing.JFrame {
         if (rd75.isSelected()) {
             a = 7.5;
         }
-        int b = Integer.parseInt(txttilenghi.getText());
-        if (txttilenghi.getText().isBlank()) {
+        int b = 0;
+        try {
+            b = Integer.parseInt(txttilenghi.getText());
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(rootPane, "Moi nhap thi le duco phep nghi");
             return;
         }
         for (int i = 0; i < _lstSV.size(); i++) {
-            if (Service.SVcheckdk.checksv(_lstdiem.get(i), _lop, a)&&_lstSV.get(i).getTilenghi()<=b) {
+            if (Service.SVcheckdk.checksv(_lstdiem.get(i), _lop, a) && _lstSV.get(i).getTilenghi() <= b) {
                 _lstSV.get(i).setCheckfalse(true);
-            }else{
+            } else {
                 _lstSV.get(i).setCheckfalse(false);
             }
         }

@@ -16,6 +16,15 @@ public class Sinhvien {
     private String malop;
     private int tilenghi;
     private String tst;
+    private String ngaythi;
+
+    public String getNgaythi() {
+        return ngaythi;
+    }
+
+    public void setNgaythi(String ngaythi) {
+        this.ngaythi = ngaythi;
+    }
     
     
     
